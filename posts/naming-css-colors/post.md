@@ -105,3 +105,9 @@ Sometimes there are special parts of designs with one-off colors. I usually put 
 ## Conclusion
 
 Colors are important. Make them easy to use. Easy to change. Easy to talk about with other people. Don’t make naming hard for yourself. Be practical. And allow a little fun in your CSS :)
+
+[Less]: http://lesscss.org/
+[PostCSS]: http://postcss.org/
+[Sass]: http://sass-lang.com/
+[Stylus]: http://stylus-lang.com/
+[custom properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
