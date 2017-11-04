@@ -14,7 +14,7 @@ But shortly after your change, the designer comes to you again. “The new blue 
 
 Turns out the blue had been written uppercase in the dashboard CSS for some reason: `#42AAD5`. Better remember to do a case insensitve find-and-replace next time.
 
-But it doesn’t end there. If color-picking has been involved during the development, ever-so-slightly-off variations of the blue might exist. Perhaps your college color-picked out `#42aad6` instead of `#42aad5`. Nobody’s eyes can tell the difference, but it’s enough to fool your find-and-replace.
+But it doesn’t end there. If color-picking has been involved during the development, ever-so-slightly-off variations of the blue might exist. Perhaps your colleague color-picked out `#42aad6` instead of `#42aad5`. Nobody’s eyes can tell the difference, but it’s enough to fool your find-and-replace.
 
 Or consider this shade of blue: `#44ccff`. Somebody might have chosen to write it in shorter notation: `#4cf`.
 
@@ -50,7 +50,7 @@ Let’s say the designer changes their mind and decides green would be nicer tha
 +$blue: #1feb8a;
 ```
 
-But then you’d leave your colleges and your future self confused.
+But then you’d leave your colleagues and your future self confused.
 
 Aha! If you’d named the variable `$primary-color` instead surely everything would have been fine?
 
@@ -70,7 +70,7 @@ No more excessive color picking or pasting hex codes in chat messages! By speaki
 
 What about the cases where the designer does _not_ have names for some colors?
 
-It’s easy with “colorful” colors, such as the ones I’ve been takling about (red, green, blue, orange). There’s usually just a handful of those. Having too many makes for a messy design.
+It’s easy with “colorful” colors, such as the ones I’ve been talking about (red, green, blue, orange). There’s usually just a handful of those. Having too many makes for a messy design.
 
 The annoying one is grey. In most projects I’ve worked on, there’s always a whole slew of greys. A good designer, in my opinion, might have a large amount of different greys, but at least is consistent with using only those. If there appears to be new greys in every part of a design, it might not be worth even trying to put them in variables.
 
@@ -86,7 +86,7 @@ $grey-lando: #969da6;
 $grey-vader: #4d4d55;
 ```
 
-You your imagination! Choose something that you like–and your colleges know about. If you’re the only Star Wars fan around, choosing another topic might be wiser.
+You your imagination! Choose something that you like–and your colleagues know about. If you’re the only Star Wars fan around, choosing another topic might be wiser.
 
 If you want to take it a step further, you can let the name of a grey color give a _hint_ about how dark it is. `$grey-luke` is probably a light grey, while `$grey-vader` is probably darker. Star Wars is good in this aspect, since the characters are usually obviously good (light) or evil (dark).
 
