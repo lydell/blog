@@ -37,11 +37,11 @@ Teach your team to look for colors in `_variables.scss` instead of hard-coding t
 
 It is commonly said that one of the hardest things about programming is naming things. Which begs the question: How should you name your colors?
 
-As a programmer, you might naturally raise your eyebrows when seeing that variable named `$blue`. Isn’t that like making doing `const TEN = 10` instead of `const VELOCITY = 10`?
+As a programmer, you might naturally raise your eyebrows when seeing that variable named `$blue`. Isn’t that like doing `const TEN = 10` instead of `const VELOCITY = 10`?
 
 You might be tempted to come up with some clever naming such as `$primary-color` and `$secondary-color`. After those two, though, I’ve basically run out of names (or at least they become harder and harder to come up with).
 
-Besides some feeling of “purity,” what would the benefit would names like `$primary-color` provide?
+Besides some feeling of “purity,” what benefit would names like `$primary-color` provide?
 
 Let’s say the designer changes their mind and decides green would be nicer than blue. You _could_ of course just change the `$blue` variable to the new green color instead:
 
@@ -60,7 +60,7 @@ On the other hand, I’ve also been trough changing a pinkish color to a more pu
 
 Abstract color names buy you nothing other than making it harder to read and write your CSS (no matter what tools you use or how fancy your editor colors your variable names). Name your colors as simple as possible and save you some trouble. `$blue`, `$orange` and `$red` are just fine.
 
-Simple names also make it easier to communicate with your designer. When I’m talking to designers we you usually end up saying things like “the orange for links”, “the green for buttons”, or just “the red we use.” Not “the primary color is used for links“ and “the secondary color for buttons”. We’re just simple humans after all.
+Simple names also make it easier to communicate with your designer. When I’m talking to designers, we you usually end up saying things like “the orange for links”, “the green for buttons”, or just “the red we use.” Not “the primary color is used for links“ and “the secondary color for buttons”. We’re just simple humans after all.
 
 So I simply choose the same names as the designer uses when talking about the design. This is especially good for colors where people disagree on the naming, such as for some shades of cyan and blue, orange and red, or beige and brown.
 
@@ -76,7 +76,7 @@ The annoying one is grey. In most projects I’ve worked on, there’s always a 
 
 How do you name those greys? What usually happened to me was that I named the first one I came across `$grey`. Next up, `$grey-dark`. Then I might have found a lighter one: `$grey-light`. Then, `$grey-darker`. `$grey-even-darker`. `$grey-kinda-dark`. You can see where this is going.
 
-This “sorted names scheme”It makes it hard to insert a new ones, for example between `grey-light` and `grey-lighter`. It’s also really hard to remember if it was `grey-light` or `grey-lighter` that was usually used for borders. And sometimes it’s hard to say if a grey is lighter or darker than another, and as such hard to come up with a name.
+This “sorted names scheme” makes it hard to insert a new ones, for example between `grey-light` and `grey-lighter`. It’s also really hard to remember if it was `grey-light` or `grey-lighter` that was usually used for borders. And sometimes it’s hard to say if a grey is lighter or darker than another, and as such hard to come up with a name.
 
 My solution is to give all the greys unique names that tell them apart, but doesn’t really say anything about the color. I’m a Star Wars fan, so I usually use Star Wars characters for the naming:
 
@@ -86,7 +86,7 @@ $grey-lando: #969da6;
 $grey-vader: #4d4d55;
 ```
 
-You your imagination! Choose something that you like–and your colleagues know about. If you’re the only Star Wars fan around, choosing another topic might be wiser.
+Use your imagination! Choose something that you like–and your colleagues know about. If you’re the only Star Wars fan around, choosing another topic might be wiser.
 
 If you want to take it a step further, you can let the name of a grey color give a _hint_ about how dark it is. `$grey-luke` is probably a light grey, while `$grey-vader` is probably darker. Star Wars is good in this aspect, since the characters are usually obviously good (light) or evil (dark).
 
