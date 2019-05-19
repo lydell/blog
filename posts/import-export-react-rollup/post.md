@@ -661,19 +661,19 @@ The browser console tells us this:
 ReferenceError: process is not defined
 ```
 
-It’s interesting how much webpack is doing out of the box to get our code running. Lucklily, we can install a plugin to teach Rollup about Node.js globals:
+This is because React uses the convention of putting `if (process.env.NODE_ENV !== "production") {` checks around development-only code, to make production bundles smaller. But there is no `process` variable in the browser. This is fixed by adding a Rollup plugin that replaces `process.env.NODE_ENV` with `"development"` (in production you’d want to replace it with `"production"`).
 
 ```
-❯ npm i rollup-plugin-node-globals
-+ rollup-plugin-node-globals@1.4.0
-added 7 packages from 83 contributors and audited 2758 packages in 4.257s
+❯ npm i rollup-plugin-replace
++ rollup-plugin-replace@2.2.0
+added 1 package from 1 contributor and audited 7985 packages in 3.54s
 found 0 vulnerabilities
 ```
 
 ```js
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
-import globals from "rollup-plugin-node-globals";
+import replace from "rollup-plugin-replace";
 
 export default {
   plugins: [
@@ -683,10 +683,11 @@ export default {
         react: ["useEffect"]
       }
     }),
-    globals()
+    replace({
+      "process.env.NODE_ENV": JSON.stringify("development")
+    })
   ]
 };
-
 ```
 
 ```
@@ -755,6 +756,8 @@ Monkey!
 My useEffect code is running.
 ```
 
+(It’s interesting to see how much webpack is doing out of the box for us, compared to Rollup’s more minimal and explicit approach.)
+
 So … is Rollup wrong? Not really. Normally, you can’t change what a named export points to from another module.
 
 ```js
@@ -794,7 +797,7 @@ TypeError: "something" is read-only
 
 So it shouldn’t really be possible to monkey-patch a bare import of `useEffect`, if you’re following the spec closely. (Unless `useEffect` depends on a mutable object internally that you can modify – but that’s another story). It just happens to work because of implementation details of webpack and React.
 
-The monkey-patching that [stop-runaway-react-effects](https://github.com/kentcdodds/stop-runaway-react-effects) does should work any bundler if you use `import React from "react"; React.useEffect`. Which is kinda nice anyway since you don’t have to adjust your imports all the time every time you use a new hook. But most people use webpack anyway, so you should be fine either way. I would be surprised if webpack suddenly changed their output code in a breaking way.
+The monkey-patching that [stop-runaway-react-effects](https://github.com/kentcdodds/stop-runaway-react-effects) does should work any bundler if you use `import React from "react"; React.useEffect`. Which is kinda nice anyway since you don’t have to adjust your imports every time you use a new hook. On the other hand, most people use webpack anyway, so you should be fine either way. I would be surprised if webpack suddenly changed their output code in a breaking way.
 
 If you’re interested, there’s an interesting discussion about shipping actual `import`/`export` in React to npm:
 
